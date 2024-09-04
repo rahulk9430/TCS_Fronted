@@ -1,0 +1,82 @@
+<mat-card>
+    <mat-card-content>
+        <h2 class="text-center">Traffic Data</h2>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="roadName">
+                <th mat-header-cell *matHeaderCellDef> Road Name </th>
+                <td mat-cell *matCellDef="let road"> {{road.roadName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="detectorName">
+                <th mat-header-cell *matHeaderCellDef> Detector Name </th>
+                <td mat-cell *matCellDef="let road"> {{road.detectorName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="occupancyPercentage">
+                <th mat-header-cell *matHeaderCellDef> Occupancy Percentage</th>
+                <td mat-cell *matCellDef="let road"> {{road.occupancyPercentage}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="averageSpeed">
+                <th mat-header-cell *matHeaderCellDef> Average Speed </th>
+                <td mat-cell *matCellDef="let road"> {{road.averageSpeed}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="classOneVolume">
+                <th mat-header-cell *matHeaderCellDef> ClassOne Volume </th>
+                <td mat-cell *matCellDef="let road"> {{road.classOneVolume}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="classTwoVolume">
+                <th mat-header-cell *matHeaderCellDef> Class Two Volume </th>
+                <td mat-cell *matCellDef="let road"> {{road.classTwoVolume}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="classThreeVolume">
+                <th mat-header-cell *matHeaderCellDef> Class Three Volume </th>
+                <td mat-cell *matCellDef="let road"> {{road.classThreeVolume}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="volume">
+                <th mat-header-cell *matHeaderCellDef> Volume </th>
+                <td mat-cell *matCellDef="let road"> {{road.volume}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef> Date </th>
+                <td mat-cell *matCellDef="let road"> {{road.date | date : "dd MMM yyyy HH:mm:ss"}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="period">
+                <th mat-header-cell *matHeaderCellDef> Period </th>
+                <td mat-cell *matCellDef="let road"> {{road.period}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="congestionLevel">
+                <th mat-header-cell *matHeaderCellDef>Congestion</th>
+                <td mat-cell *matCellDef="let road"
+                    [style.backgroundColor]="road.congestionLevel === 0 ? 'green' :
+                                             (road.congestionLevel === 1 ? 'yellow' : 'red')">
+                                             
+                    {{ road.congestionLevel === 0 ? 'Low' : (road.congestionLevel === 1 ? 'Medium' : 'High') }}
+                </td>
+            </ng-container>
+
+
+
+            <!-- <tr *ngFor="let data of trafficData" >
+            <td *ngIf="data.congestionLevel==0" style="background-color:green"> </td>
+            <td *ngIf="data.congestionLevel==1" style="background-color:yellow">  </td>
+            <td *ngIf="data.congestionLevel==2" style="background-color:red"> </td>
+        </tr> -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </mat-card-content>
+
+</mat-card>

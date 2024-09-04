@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper">
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-md-6 offset-md-3" >
+                <mat-card>
+                    <mat-card-content>
+                <h2 class="text-center">Register Road Details</h2>
+                   
+                <form (ngSubmit)="formSubmit()" >
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Road Name</mat-label>
+                        <input
+                        required
+                        [(ngModel)]="road.roadName" name="roadName"
+                        matInput placeholder="Enter Here">
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Detector Name</mat-label>
+                        <input 
+                        required
+                        [(ngModel)]="road.detectorName" name="detectorName"
+                        matInput placeholder="Enter Here">
+                      </mat-form-field>
+                      
+                      <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Status</mat-label>
+                        <mat-select placeholder="Select"  [(ngModel)]="road.detectorStatus" name="detectorStatus" required>
+                          <mat-option value="true">UP</mat-option>
+                          <mat-option value="false">DOWN</mat-option>
+                        </mat-select>
+                        
+                      </mat-form-field>
+
+                      <div class="container text-center">
+
+                        <button class="text-center" mat-raised-button color="primary">Save</button>
+                       
+                      </div>
+
+
+
+                </form>
+            </mat-card-content>
+            </mat-card>
+        
+            </div>
+            
+        </div>
+    </div>
+</div>

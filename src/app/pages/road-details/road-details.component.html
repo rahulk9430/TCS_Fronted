@@ -1,0 +1,31 @@
+
+<div class="bootstrap-wrapper">
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-md-6 offset-md-3" >
+                <mat-card>
+                    <mat-card-content>
+                <h2 class="text-center">Details of Road</h2>
+
+                <mat-list>
+                    <mat-list-item>Road Id :- {{road.roadId}}</mat-list-item>
+                    <mat-list-item>Road Name :- {{road.roadName}}</mat-list-item>
+                    <mat-list-item>Detector Name :- {{road.detectorName}}</mat-list-item>
+                    <mat-list-item>Status :- {{road.detectorStatus===true ? 'UP': (road.detectorStatus===false ? 'Down': '')}}</mat-list-item>
+                  
+                </mat-list>
+                   
+                   <div class="container text-center">
+
+                    <button (click)="backButton()" class="text-center" mat-raised-button color="primary">Back</button>
+                   
+                  </div>
+                
+            </mat-card-content>
+            </mat-card>
+        
+            </div>
+            
+        </div>
+    </div>
+</div>
